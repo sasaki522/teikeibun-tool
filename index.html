@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>求職者対応 定型文作成ツール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Career Advisor LINE Template Tool</p>
+      <h1>求職者対応 定型文作成ツール</h1>
+      <p class="lead">求職者名を入力して、使いたいシーンのボタンを押してください。</p>
+    </div>
+  </header>
+
+  <main class="container app-layout">
+    <section class="panel input-panel" aria-labelledby="input-heading">
+      <h2 id="input-heading">入力内容</h2>
+      <div class="form-grid">
+        <label for="candidateName">
+          求職者名
+          <input type="text" id="candidateName" placeholder="例：山田 花子" autocomplete="off">
+          <span class="hint">未入力の場合は「求職者様」になります。</span>
+        </label>
+
+        <label for="companyName">
+          企業名
+          <input type="text" id="companyName" placeholder="例：テクノサービス" autocomplete="off">
+          <span class="hint">未入力でも自然な文面で作成します。</span>
+        </label>
+
+        <label for="additionalInfo" class="full-width">
+          補足情報
+          <textarea id="additionalInfo" rows="5" placeholder="例：面接日時：本日 14:00／持ち物：履歴書／担当：佐藤様"></textarea>
+          <span class="hint">面接日時、提出物、担当者名、電話番号、注意点などを自由に入力できます。</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel scene-panel" aria-labelledby="scene-heading">
+      <div class="section-title-row">
+        <div>
+          <h2 id="scene-heading">トーンとシーンを選択</h2>
+          <p>トーンを選んでからボタンを押すと、LINEで送りやすい文面を生成します。</p>
+        </div>
+      </div>
+
+      <fieldset class="tone-selector" aria-label="文面トーン選択">
+        <legend>文面トーン</legend>
+        <label class="tone-option">
+          <input type="radio" name="messageTone" value="soft">
+          <span>柔らかめ</span>
+        </label>
+        <label class="tone-option">
+          <input type="radio" name="messageTone" value="standard" checked>
+          <span>標準</span>
+        </label>
+        <label class="tone-option">
+          <input type="radio" name="messageTone" value="closing">
+          <span>クロージング強め</span>
+        </label>
+      </fieldset>
+
+      <div class="scene-groups" id="sceneButtons" aria-label="シーン別テンプレートボタン"></div>
+    </section>
+
+    <section class="panel output-panel" aria-labelledby="output-heading">
+      <div class="section-title-row output-title">
+        <div>
+          <h2 id="output-heading">生成文面</h2>
+          <p id="selectedScene">シーン未選択</p>
+        </div>
+        <div class="action-buttons">
+          <button type="button" class="secondary-button" id="resetButton">リセット</button>
+          <button type="button" class="primary-button" id="copyButton">コピー</button>
+        </div>
+      </div>
+      <textarea id="messageOutput" rows="12" aria-label="生成されたLINE文面" placeholder="ここに文面が表示されます。"></textarea>
+      <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>静的HTML/CSS/JavaScriptのみで動作します。GitHub Pagesでそのまま公開できます。</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
